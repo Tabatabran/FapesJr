@@ -22,5 +22,5 @@
   },
   "include": [
     "src"
-  ]
+, "src/View/TelaMapa.tsx", "src/View/TelaInicial.tsx"  ]
 }
