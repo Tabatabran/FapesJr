@@ -1,14 +1,14 @@
 import React from 'react';
 import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import TelaMapa from './TelaMapa';
-import TelaInicial from './TelaInicial';
+import TelaMapa from './TelaMontagemProva';
+import TelaLogin from './TelaLogin';
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path='/' element={<TelaInicial />} />
+        <Route path='/' element={<TelaLogin />} />
         <Route path='/TelaMapa' element={<TelaMapa />} />
       </Routes>
     </BrowserRouter>

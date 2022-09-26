@@ -1,0 +1,47 @@
+.header {
+    background-color: #282c34;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+  }
+
+#botaoCadastrar {
+    margin-right: 9vh;
+    width: 15vh;
+}
+
+#botaoLogar {
+    width: 15vh;
+}
+
+.itens{
+    display: flex;
+    flex-direction: column;
+}
+
+.form{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+#inputs{
+    margin-left: 2vh;
+}
+
+#inputSenha{
+    margin-top: 2.5vh;
+}
+
+#labelLogin{
+    margin-bottom: 1vh;
+}
+
+#labelSenha{
+    margin-bottom: 1vh;
+}
