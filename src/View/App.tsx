@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import TelaMapa from './TelaMontagemProva';
+import TelaPrincipalProfessor from './ControladorTelaPrincipalProfessor';
 import TelaLogin from './TelaLogin';
 
 function App() {
@@ -9,7 +9,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<TelaLogin />} />
-        <Route path='/TelaMapa' element={<TelaMapa />} />
+        <Route path='/TelaPrincipalProfessor' element={<TelaPrincipalProfessor />} />
       </Routes>
     </BrowserRouter>
   );
