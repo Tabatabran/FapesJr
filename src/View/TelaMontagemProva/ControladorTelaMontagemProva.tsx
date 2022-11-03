@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import TelaPrincipalProfessor from './TelaPrincipalProfessor';
-import { db } from '../dao/firebase'
+import React, { FormEvent, useEffect, useState } from 'react';
+import TelaPrincipalProfessor from './TelaMontagemProva';
+import { db } from '../../dao/firebase'
 import { getDatabase, ref, set } from "firebase/database";
-import { storage } from "../dao/firebaseStorage";
+import { storage } from "../../dao/firebaseStorage";
 import { ref as referencia, getDownloadURL, uploadBytesResumable } from "firebase/storage";
 
 function ControladorTelaPrincipalProfessor() {
@@ -23,22 +23,54 @@ function ControladorTelaPrincipalProfessor() {
         setQuestao(questao - 1)
     }
 
-    function tipoQuestaoUm(texto: string) {
+    function salvarTipoQuestao1(event: any){
+        event.preventDefault()
         dado = {
             ...dado,
             [questao]: {
                 tipoQuestao: tipoQuestao,
-                pergunta: texto
+                enunciado: event.target.enunciado.value
+            }
+        } 
+    }
+
+    function salvarTipoQuestao2(event: any) {
+        event.preventDefault()
+        dado = {
+            ...dado,
+            [questao]: {
+                tipoQuestao: tipoQuestao,
+                enunciado: event.target.enunciado.value,
+                resposta1: event.target.resposta1.value,
+                resposta2: event.target.resposta2.value,
+                resposta3: event.target.resposta3.value,
+                resposta4: event.target.resposta4.value,
+                respostaCorreta: event.target.respostaCorreta.value
+            }
+        } 
+    }
+
+    function salvarTipoQuestao3(event: any) {
+        event.preventDefault()
+        
+        handleUploadImagem(event)
+        dado = {
+            ...dado,
+            [questao]: {
+                tipoQuestao: tipoQuestao,
+                enunciado: event.target.enunciado.value,
+                imagem: imgURL,
+                resposta1: event.target.resposta1.value,
+                resposta2: event.target.resposta2.value,
+                resposta3: event.target.resposta3.value,
+                resposta4: event.target.resposta4.value,
+                respostaCorreta: event.target.respostaCorreta.value
             }
         }
-    }
-    function tipoQuestao2() {
 
     }
-    function tipoQuestao3() {
 
-    }
-    function tipoQuestao4() {
+    function salvarTipoQuestao4() {
 
     }
 
@@ -97,7 +129,9 @@ function ControladorTelaPrincipalProfessor() {
             writeUserData={writeUserData}
             showPopUp={showPopUp}
             closeModal={closeModal}
-            openModal={openModal} />
+            openModal={openModal} 
+            salvarTipoQuestao1={salvarTipoQuestao1}
+            salvarTipoQuestao2={salvarTipoQuestao2}/>
     );
 
 }
