@@ -6,13 +6,13 @@ function TelaPrincipalProfessor(
   { setInputTurma, inputTurma, inputDescricao, setInputDescricao,
     tipoQuestao, setTipoquestao, questao, handleSetProximaQuestao,
     handleSetQuestaoAnterior, writeUserData, showPopUp, openModal, closeModal, salvarTipoQuestao1,
-     salvarTipoQuestao2 }:
+     salvarTipoQuestao2,  salvarTipoQuestao3, salvarTipoQuestao4}:
     {
       setInputTurma: (text: string) => void, inputTurma: string, inputDescricao: string, setInputDescricao: (texte: string) => void,
       tipoQuestao: number, setTipoquestao: (tipoQuestao: number) => void, questao: number,
       handleSetProximaQuestao: () => void, handleSetQuestaoAnterior: () => void, writeUserData: () => void,
       showPopUp: boolean, openModal: () => void, closeModal: () => void, salvarTipoQuestao1: (e: any) => void,
-      salvarTipoQuestao2: (e: any) => void
+      salvarTipoQuestao2: (e: any) => void, salvarTipoQuestao3: (e: any) => void, salvarTipoQuestao4: (e: any) => void
     }) {
 
   return (
@@ -101,7 +101,7 @@ function TelaPrincipalProfessor(
           )}
 
           {tipoQuestao === 3 && (
-            <div>
+            <form onSubmit={salvarTipoQuestao3}>
 
               <div>
                 <label>Informe o enunciado da questão:</label>
@@ -138,11 +138,15 @@ function TelaPrincipalProfessor(
                 <input />
               </div>
 
-            </div>
+              <div>
+                <button type='submit' >Salvar questão</button>
+              </div>
+
+            </form>
           )}
 
           {tipoQuestao === 4 && (
-            <div>
+            <form onSubmit={salvarTipoQuestao4}>
 
               <div>
                 <label>Informe o enunciado da questão:</label>
@@ -154,7 +158,11 @@ function TelaPrincipalProfessor(
                 <input />
               </div>
 
-            </div>
+              <div>
+                <button type='submit' >Salvar questão</button>
+              </div>
+
+            </form>
           )}
 
 

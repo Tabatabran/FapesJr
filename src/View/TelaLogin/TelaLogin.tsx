@@ -5,34 +5,44 @@ import './TelaLogin.css';
 function TelaInicial() {
 
   return (
-    <div className="TelaInicial">
-      <header className="header">
+    <div className="TelaLogin">
 
-        <form>
-          <div className='form'>
-            <div className='itens'>
-              <label id='labelLogin'>Login:</label>
-              <label id='labelSenha'>Senha:</label>
-            </div>
+      <form>
 
-            <div className='itens' id='inputs'>
-              <input />
-              <input id='inputSenha' />
-            </div>
+        <div className='formLoginGoogle'>
+          <button id='botaoLogarGoogle'>
+            Entrar com o Google
+          </button>
+        </div>
+
+
+      </form >
+
+      <form>
+
+        <div className='formLogin'>
+          <div className='itens'>
+            <label id='labelLogin'>Login:</label>
+            <label id='labelSenha'>Senha:</label>
           </div>
 
-          <div>
-            <button id='botaoCadastrar'>
-              Cadastrar
-            </button>
-            <button id='botaoLogar'>
-              Logar
-            </button>
+          <div className='itens' id='inputs'>
+            <input />
+            <input id='inputSenha' />
           </div>
+        </div>
 
-        </form>
-      </header>
-    </div>
+        <div>
+          <button id='botaoCadastrar'>
+            Cadastrar
+          </button>
+          <button id='botaoLogar'>
+            Logar
+          </button>
+        </div>
+
+      </form>
+    </div >
   );
 }
 

@@ -70,8 +70,18 @@ function ControladorTelaPrincipalProfessor() {
 
     }
 
-    function salvarTipoQuestao4() {
-
+    function salvarTipoQuestao4(event: any) {
+        event.preventDefault()
+        
+        handleUploadImagem(event)
+        dado = {
+            ...dado,
+            [questao]: {
+                tipoQuestao: tipoQuestao,
+                enunciado: event.target.enunciado.value,
+                imagem: imgURL
+            }
+        }
     }
 
     function writeUserData() {
@@ -131,7 +141,9 @@ function ControladorTelaPrincipalProfessor() {
             closeModal={closeModal}
             openModal={openModal} 
             salvarTipoQuestao1={salvarTipoQuestao1}
-            salvarTipoQuestao2={salvarTipoQuestao2}/>
+            salvarTipoQuestao2={salvarTipoQuestao2}
+            salvarTipoQuestao3={salvarTipoQuestao3}
+            salvarTipoQuestao4={salvarTipoQuestao4}/>
     );
 
 }
