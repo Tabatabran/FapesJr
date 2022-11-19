@@ -56,3 +56,26 @@
     margin-left: 50vh;
     width: 15vh;
 }
+
+#tipo1{
+    height: 10vh;
+    width: 10vh;
+}
+
+#tipo2{
+    height: 10vh;
+    width: 10vh;
+    margin-left: 2vh;
+    margin-right: 2vh;
+}
+
+#tipo3{
+    height: 10vh;
+    width: 10vh;
+    margin-right: 2vh;
+}
+
+#tipo4{
+    height: 10vh;
+    width: 10vh;
+}

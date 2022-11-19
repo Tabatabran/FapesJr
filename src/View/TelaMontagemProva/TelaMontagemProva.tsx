@@ -41,10 +41,10 @@ function TelaPrincipalProfessor(
 
           <div>
             <a>questão {questao}</a>
-            <button onClick={() => setTipoquestao(1)} />
-            <button onClick={() => setTipoquestao(2)} />
-            <button onClick={() => setTipoquestao(3)} />
-            <button onClick={() => setTipoquestao(4)} />
+            <button id = 'tipo1' onClick={() => setTipoquestao(1)}>Tipo 1</button>
+            <button id = 'tipo2' onClick={() => setTipoquestao(2)}>Tipo 2</button>
+            <button id = 'tipo3' onClick={() => setTipoquestao(3)}>Tipo 3</button>
+            <button id = 'tipo4' onClick={() => setTipoquestao(4)}>Tipo 4</button>
           </div>
 
           {tipoQuestao === 1 && (
