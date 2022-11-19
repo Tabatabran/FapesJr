@@ -38,7 +38,6 @@ function TelaPrincipalProfessor(
             </div>
           </div>
 
-
           <div>
             <a>questão {questao}</a>
             <button id = 'tipo1' onClick={() => setTipoquestao(1)}>Tipo 1</button>
