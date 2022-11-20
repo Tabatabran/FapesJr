@@ -1,4 +1,3 @@
-import { Button } from '@material-ui/core';
 import React from 'react';
 import './TelaPrincipalProfessor.css';
 import {useNavigate} from 'react-router-dom';
@@ -11,7 +10,7 @@ function TelaInicial() {
     <div className="TelaPrincipalProfessor">
 
       <div>
-        <Button id="botaoCriarProva" onClick={() => navigate('/TelaMontagemProva')}>Criar prova</Button>
+        <button id="botaoCriarProva" onClick={() => navigate('/TelaMontagemProva')}>Criar prova</button>
       </div>
 
       <div>

@@ -86,7 +86,7 @@ function ControladorTelaPrincipalProfessor() {
 
     function writeUserData() {
 
-        set(ref(db, 'professor/' + 'guilherme12/prova'), {
+        set(ref(db, 'professor/' + 'tabata/prova'), {
 
             dado,
 

@@ -7,8 +7,12 @@ function TelaInicial() {
   return (
     <div className="TelaMapa">
 
-      <label>Mapa</label>
-      
+      <label>
+        Mapa
+      </label>
+
+
+
     </div >
   );
 }
