@@ -1,0 +1,36 @@
+.TelaCadastro {
+    background-color: #282c34;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+  }
+
+  .formLogin{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+#botaoLogar {
+    width: 15vh;
+}
+
+#botaoVoltar {
+    width: 15vh;
+    margin-right: 10vh;
+}
+
+#displayName {
+    margin-left: 2vh; 
+}
+#userEmail {
+    margin-left: 3.2vh; 
+}
+#userPassword {
+    margin-left: 2vh; 
+}

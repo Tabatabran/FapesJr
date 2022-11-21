@@ -5,7 +5,10 @@ import TelaPrincipalProfessor from '../TelaPrincipalProfessor/TelaPrincipalProfe
 import TelaMontagemProva from '../TelaMontagemProva/ControladorTelaMontagemProva';
 import TelaEscolhaPersonagem from '../TelaEscolhaPersonagem/TelaEscolhaPersonagem';
 import TelaInicialJogo from '../TelaInicialJogo/TelaInicialJogo';
-import TelaLogin from '../TelaLogin/TelaLogin';
+import TelaLogin from '../TelaLogin/ControladorTelaLogin';
+import TelaCadastro from '../TelaCadastro/ControladorTelaCadastro';
+
+
 import TelaMapa from '../TelaMapa/TelaMapa';
 
 function App() {
@@ -18,6 +21,7 @@ function App() {
         <Route path='/TelaEscolhaPersonagem' element={<TelaEscolhaPersonagem />} />
         <Route path='/TelaInicialJogo' element={<TelaInicialJogo />} />
         <Route path='/TelaMapa' element={<TelaMapa />} />
+        <Route path='/CadastroProfessor' element={<TelaCadastro />} />
       </Routes>
     </BrowserRouter>
   );

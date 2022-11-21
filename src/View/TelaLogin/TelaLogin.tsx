@@ -1,22 +1,21 @@
 import React from 'react';
+import { NavigateFunction } from "react-router-dom";
 import './TelaLogin.css';
 
+interface Params {
+  navigate : NavigateFunction;
+  onChangeHandler: (event: React.ChangeEvent<HTMLInputElement>) => void; 
+  signInWithEmailAndPasswordHandler:(event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
+  password: string;
+  email: string;
+  error: string;
+}
 
-function TelaInicial() {
+function TelaInicial({onChangeHandler,signInWithEmailAndPasswordHandler, navigate, password, email, error}: Params) {
 
   return (
-    <div className="TelaLogin">
-
-      <form>
-
-        <div className='formLoginGoogle'>
-          <button id='botaoLogarGoogle'>
-            Entrar com o Google
-          </button>
-        </div>
-
-
-      </form >
+    <div className="TelaLogin mt-8" >
+        {error !== null && <div className = "py-4 bg-red-600 w-full text-white text-center mb-3">{error}</div>}
 
       <form>
 
@@ -27,16 +26,28 @@ function TelaInicial() {
           </div>
 
           <div className='itens' id='inputs'>
-            <input />
-            <input id='inputSenha' />
+            <input type="email"
+            className="my-1 p-1 w-full"
+            name="userEmail"
+            value = {email}
+            placeholder="faruq123@gmail.com"
+            id="userEmail"
+            onChange = {(event) => onChangeHandler(event)} />
+            <input type="password"
+            className="mt-1 mb-3 p-1 w-full"
+            name="userPassword"
+            value = {password}
+            placeholder="Sua senha"
+            id="userPassword"
+            onChange = {(event) => onChangeHandler(event)}/>
           </div>
         </div>
 
         <div>
-          <button id='botaoCadastrar'>
+          <button id='botaoCadastrar' onClick = {() => navigate('/CadastroProfessor')}>
             Cadastrar
           </button>
-          <button id='botaoLogar'>
+          <button id='botaoLogar' onClick = {(event) => {signInWithEmailAndPasswordHandler(event)}}>
             Logar
           </button>
         </div>

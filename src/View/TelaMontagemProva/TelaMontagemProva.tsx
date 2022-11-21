@@ -2,18 +2,21 @@ import React, { useState } from 'react';
 import './TelaMontagemProva.css';
 import PopUp from '../../Componentes/PopUps'
 
+interface Params {
+  setInputTurma: (text: string) => void, inputTurma: string, inputDescricao: string, setInputDescricao: (texte: string) => void,
+  tipoQuestao: number, setTipoquestao: (tipoQuestao: number) => void, questao: number,
+  handleSetProximaQuestao: () => void, handleSetQuestaoAnterior: () => void, writeUserData: () => void,
+  showPopUp: boolean, openModal: () => void, closeModal: () => void, salvarTipoQuestao1: (e: any) => void,
+  salvarTipoQuestao2: (e: any) => void, salvarTipoQuestao3: (e: any) => void, salvarTipoQuestao4: (e: any) => void, 
+  mensagem: string, handleFileSelectedQuestao3:(e: React.ChangeEvent<HTMLInputElement>) => void
+}
+
 function TelaPrincipalProfessor(
   { setInputTurma, inputTurma, inputDescricao, setInputDescricao,
     tipoQuestao, setTipoquestao, questao, handleSetProximaQuestao,
     handleSetQuestaoAnterior, writeUserData, showPopUp, openModal, closeModal, salvarTipoQuestao1,
-     salvarTipoQuestao2,  salvarTipoQuestao3, salvarTipoQuestao4}:
-    {
-      setInputTurma: (text: string) => void, inputTurma: string, inputDescricao: string, setInputDescricao: (texte: string) => void,
-      tipoQuestao: number, setTipoquestao: (tipoQuestao: number) => void, questao: number,
-      handleSetProximaQuestao: () => void, handleSetQuestaoAnterior: () => void, writeUserData: () => void,
-      showPopUp: boolean, openModal: () => void, closeModal: () => void, salvarTipoQuestao1: (e: any) => void,
-      salvarTipoQuestao2: (e: any) => void, salvarTipoQuestao3: (e: any) => void, salvarTipoQuestao4: (e: any) => void
-    }) {
+     salvarTipoQuestao2,  salvarTipoQuestao3, salvarTipoQuestao4, mensagem, handleFileSelectedQuestao3}:
+    Params) {
 
   return (
 
@@ -54,7 +57,7 @@ function TelaPrincipalProfessor(
               </div>
 
               <div>
-                <button type='submit' >Salvar questão</button>
+                <button type='submit' >Salvar questão </button>
               </div>
             </form>
           )}
@@ -93,7 +96,7 @@ function TelaPrincipalProfessor(
               </div>
 
               <div>
-                <button type='submit' >Salvar questão</button>
+                <button type='submit' >Salvar questão </button>
               </div>
 
             </form>
@@ -104,41 +107,41 @@ function TelaPrincipalProfessor(
 
               <div>
                 <label>Informe o enunciado da questão:</label>
-                <textarea />
+                <textarea id='enunciado' />
               </div>
 
               <div>
                 <label>Selecione a imagem desejada:</label>
-                <input type="file" />
+                <input type="file" onChange={handleFileSelectedQuestao3} />
               </div>
 
               <div>
                 <label>Informe a resposta 1:</label>
-                <input />
+                <input id='resposta1' />
               </div>
 
               <div>
                 <label>Informe a resposta 2:</label>
-                <input />
+                <input id='resposta2'/>
               </div>
 
               <div>
                 <label>Informe a resposta 3:</label>
-                <input />
+                <input id='resposta3'/>
               </div>
 
               <div>
                 <label>Informe a resposta 4:</label>
-                <input />
+                <input id='resposta4'/>
               </div>
 
               <div>
                 <label>Informe o número da resposta correta:</label>
-                <input />
+                <input id='respostaCorreta'/>
               </div>
 
               <div>
-                <button type='submit' >Salvar questão</button>
+                <button type='submit' >Salvar questão </button>
               </div>
 
             </form>
@@ -149,16 +152,16 @@ function TelaPrincipalProfessor(
 
               <div>
                 <label>Informe o enunciado da questão:</label>
-                <textarea />
+                <textarea id='enunciado'/>
               </div>
 
               <div>
                 <label>Selecione a imagem desejada:</label>
-                <input />
+                <input type='file' onChange={handleFileSelectedQuestao3} />
               </div>
 
               <div>
-                <button type='submit' >Salvar questão</button>
+                <button type='submit' >Salvar questão </button>
               </div>
 
             </form>
@@ -185,7 +188,7 @@ function TelaPrincipalProfessor(
 
       </div>
       <div>
-        <PopUp mensagem='Prova salva com sucesso' visible={showPopUp} openModal={openModal} closeModal={closeModal} />
+        <PopUp mensagem={mensagem} visible={showPopUp} openModal={openModal} closeModal={closeModal} />
       </div>
 
     </div >

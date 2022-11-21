@@ -1,7 +1,16 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getFirestore } from "firebase/firestore";
-import {getDatabase} from 'firebase/database'
+import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut } from "firebase/auth"
+import { getDatabase } from 'firebase/database'
+import {
+  getFirestore,
+  query,
+  getDocs,
+  collection,
+  where,
+  addDoc,
+} from "firebase/firestore";
+
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -20,4 +29,70 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
-export {db}
+const dbFire = getFirestore(app);
+const auth = getAuth(app);
+export { db, auth, dbFire }
+
+
+export const logInWithEmailAndPassword = async (email, password) => {
+  try {
+    await signInWithEmailAndPassword(auth, email, password);
+  } catch (err) {
+    console.log(err.message);
+    if(err.message === 'Firebase: Error (auth/user-not-found).'){
+      alert('O seu usuario não foi cadastrado! \n Porfavor cadastre-se');
+
+    }
+  }
+};
+
+export const registerWithEmailAndPassword = async (name, email, password) => {
+  try {
+    const res = await createUserWithEmailAndPassword(auth, email, password);
+    const user = res.user;
+    await addDoc(collection(dbFire, "professor"), {
+      uid: user.uid,
+      name,
+      email,
+    });
+    
+  } catch (err) {
+    console.log(err.message);
+    if(err.message === 'Firebase: Password should be at least 6 characters (auth/weak-password).'){
+      //alert('Sua senha tem que ter no minino 6 caracteres');
+      throw 'Sua senha tem que ter no minino 6 caracteres'
+
+    }else if (err.message === 'Firebase: Error (auth/email-already-in-use).'){
+      throw 'O e-mail escolido já esta sendo utilizado!'
+
+    }else{
+      throw 'Ocorreu um erro, por favor tente novamente!'
+
+    }
+  }
+};
+
+export const registerProva = async ({dado,uidUser}) => {
+  try {
+    console.log({uidUser})
+    await addDoc(collection(dbFire, "professor/"+uidUser+"/provas/"), dado);
+    
+  } catch (err) {
+    console.log(err.message);
+    if(err.message === 'Firebase: Password should be at least 6 characters (auth/weak-password).'){
+      //alert('Sua senha tem que ter no minino 6 caracteres');
+      throw 'Sua senha tem que ter no minino 6 caracteres'
+
+    }else if (err.message === 'Firebase: Error (auth/email-already-in-use).'){
+      throw 'O e-mail escolido já esta sendo utilizado!'
+
+    }else{
+      throw 'Ocorreu um erro, por favor tente novamente!'
+
+    }
+  }
+}
+
+export const logout = () => {
+  signOut(auth);
+};
