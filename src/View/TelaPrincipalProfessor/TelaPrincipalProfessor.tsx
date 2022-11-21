@@ -4,14 +4,14 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import './TelaPrincipalProfessor.css';
 import { auth, dbFire, logout } from "../../dao/firebase";
 
-import {useNavigate, } from 'react-router-dom';
+import { useNavigate, } from 'react-router-dom';
 import { query, collection, getDocs, where } from "firebase/firestore";
 import { useState } from 'react';
 
 
 function TelaInicial() {
   const [user, loading, error] = useAuthState(auth);
-const [prova,setProva]=useState([])
+  const [prova, setProva] = useState([])
   const navigate = useNavigate();
 
   const initial = async () => {
@@ -29,14 +29,14 @@ const [prova,setProva]=useState([])
   };
 
   useEffect(() => {
-    window.addEventListener('popstate', e =>  {
+    window.addEventListener('popstate', e => {
       navigate('/')
     })
-  },[])
+  }, [])
 
   useEffect(() => {
-    if(user) initial()
-  },[user])
+    if (user) initial()
+  }, [user])
 
   return (
     <div className="TelaPrincipalProfessor">
@@ -47,9 +47,14 @@ const [prova,setProva]=useState([])
 
       <div>
         <label>Provas criadas</label>
-     {prova.map((value: {turma:String, descricao: string, prova: any}, index)=> (
-        <label key={index.toString()}>{value.turma}</label>
-      ))}
+      </div>
+      <div>
+        {prova.map((value: { turma: String, descricao: string, prova: any }, index) => (
+          <div>
+            <label key={index.toString()}>{value.turma}</label>
+            <label key={index.toString()}>{value.descricao}</label>
+          </div>
+        ))}
       </div>
     </div >
   );

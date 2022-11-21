@@ -21,7 +21,7 @@ function TelaInicial({onChangeHandler,signInWithEmailAndPasswordHandler, navigat
 
         <div className='formLogin'>
           <div className='itens'>
-            <label id='labelLogin'>Login:</label>
+            <label id='labelLogin'>Email:</label>
             <label id='labelSenha'>Senha:</label>
           </div>
 
@@ -30,14 +30,12 @@ function TelaInicial({onChangeHandler,signInWithEmailAndPasswordHandler, navigat
             className="my-1 p-1 w-full"
             name="userEmail"
             value = {email}
-            placeholder="faruq123@gmail.com"
             id="userEmail"
             onChange = {(event) => onChangeHandler(event)} />
             <input type="password"
             className="mt-1 mb-3 p-1 w-full"
             name="userPassword"
             value = {password}
-            placeholder="Sua senha"
             id="userPassword"
             onChange = {(event) => onChangeHandler(event)}/>
           </div>

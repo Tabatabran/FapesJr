@@ -38,15 +38,7 @@
     margin-bottom: 5vh;
 }
 
-#botaoLogarGoogle {
-    width: 40npmvh;
-}
-
-#inputs{
-    margin-left: 2vh;
-}
-
-#inputSenha{
+#userPassword{
     margin-top: 2.5vh;
 }
 

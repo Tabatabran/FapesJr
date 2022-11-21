@@ -12,8 +12,11 @@
 #barco {
   border: none;
   background-color: rgb(0, 0, 0, 0);
+  background-image: url('/src/imagens/barcoPirata.png');
   background-size: cover;
   background-repeat: no-repeat;
-  width: 40vh;
-  height: 35vh;
+  width: 25vh;
+  height: 21vh;
+  margin-left: 85vh;
+  margin-top: 30vh;
 }

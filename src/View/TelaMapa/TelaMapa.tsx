@@ -12,7 +12,7 @@ function TelaMapa(
     <div className="TelaMapa"
       style={{ backgroundImage: `url(${fundo})` }}>
 
-      <input id='barco' src={urlBarco} />
+      <button id='barco' />
 
     </div >
   );
