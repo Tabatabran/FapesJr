@@ -11,7 +11,7 @@ interface Params {
   mensagem: string, handleFileSelectedQuestao3:(e: React.ChangeEvent<HTMLInputElement>) => void
 }
 
-function TelaPrincipalProfessor(
+function TelaMontagemProva(
   { setInputTurma, inputTurma, inputDescricao, setInputDescricao,
     tipoQuestao, setTipoquestao, questao, handleSetProximaQuestao,
     handleSetQuestaoAnterior, writeUserData, showPopUp, openModal, closeModal, salvarTipoQuestao1,
@@ -195,4 +195,4 @@ function TelaPrincipalProfessor(
   );
 }
 
-export default TelaPrincipalProfessor;
+export default TelaMontagemProva;

@@ -1,4 +1,3 @@
-import { Button } from '@material-ui/core';
 import React, { useEffect } from 'react';
 import { useAuthState } from "react-firebase-hooks/auth";
 
@@ -43,7 +42,7 @@ const [prova,setProva]=useState([])
     <div className="TelaPrincipalProfessor">
 
       <div>
-        <Button id="botaoCriarProva" onClick={() => navigate('/TelaMontagemProva')}>Criar prova</Button>
+        <button id="botaoCriarProva" onClick={() => navigate('/TelaMontagemProva')}>Criar prova</button>
       </div>
 
       <div>
