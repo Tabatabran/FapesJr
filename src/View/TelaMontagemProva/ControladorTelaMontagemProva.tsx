@@ -11,7 +11,7 @@ function ControladorTelaPrincipalProfessor() {
     const [tipoQuestao, setTipoquestao] = useState(0);
     const [questao, setQuestao] = useState(1);
     const [showPopUp, setShowPopUp] = useState(false);
-    const [imgURL, setImgURL] = useState("");
+    const [imgURL, setImgURL] = useState('');
     let dado = {}
     let exemplo = {}
 

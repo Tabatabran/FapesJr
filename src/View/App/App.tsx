@@ -3,10 +3,10 @@ import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import TelaPrincipalProfessor from '../TelaPrincipalProfessor/TelaPrincipalProfessor';
 import TelaMontagemProva from '../TelaMontagemProva/ControladorTelaMontagemProva';
-import TelaEscolhaPersonagem from '../TelaEscolhaPersonagem/TelaEscolhaPersonagem';
+import TelaEscolhaPersonagem from '../TelaEscolhaPersonagem/ControladorTelaEscolhaPersonagem';
 import TelaInicialJogo from '../TelaInicialJogo/TelaInicialJogo';
 import TelaLogin from '../TelaLogin/TelaLogin';
-import TelaMapa from '../TelaMapa/TelaMapa';
+import TelaMapa from '../TelaMapa/ControladorTelaMapa';
 
 function App() {
   return (

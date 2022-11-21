@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './TelaMontagemProva.css';
 import PopUp from '../../Componentes/PopUps'
 
-function TelaPrincipalProfessor(
+function TelaMontagemProva(
   { setInputTurma, inputTurma, inputDescricao, setInputDescricao,
     tipoQuestao, setTipoquestao, questao, handleSetProximaQuestao,
     handleSetQuestaoAnterior, writeUserData, showPopUp, openModal, closeModal, salvarTipoQuestao1,
@@ -192,4 +192,4 @@ function TelaPrincipalProfessor(
   );
 }
 
-export default TelaPrincipalProfessor;
+export default TelaMontagemProva;

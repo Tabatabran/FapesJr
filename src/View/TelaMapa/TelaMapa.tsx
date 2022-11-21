@@ -1,20 +1,21 @@
 import React from 'react';
 import './TelaMapa.css';
+import fundo from '../../imagens/mapa.png'
 
 
-function TelaInicial() {
+function TelaMapa(
+  {urlBarco}:
+  {urlBarco: string}
+) {
 
   return (
-    <div className="TelaMapa">
+    <div className="TelaMapa"
+      style={{ backgroundImage: `url(${fundo})` }}>
 
-      <label>
-        Mapa
-      </label>
-
-
+      <input id='barco' src={urlBarco} />
 
     </div >
   );
 }
 
-export default TelaInicial;
+export default TelaMapa;

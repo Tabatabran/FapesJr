@@ -1,25 +1,49 @@
 import React from 'react';
 import './TelaEscolhaPersonagem.css';
+import fundo from '../../imagens/fundoIlhaPlaca.png'
+import { useNavigate } from 'react-router-dom';
 
-
-function TelaInicial() {
-
+function TelaEscolhaPersonagem(
+  {
+    tipoBarco, setTipoBarco, setNomeAluno, setInformacaoAluno
+  }:
+    {
+      tipoBarco: string,
+      setTipoBarco: (tipobarco: string) => void,
+      setNomeAluno: (text: string) => void,
+      setInformacaoAluno: () => void
+    }
+) {
   return (
-    <div className="TelaEscolhaPersonagem">
+    <div className="TelaEscolhaPersonagem"
+      style={{ backgroundImage: `url(${fundo})` }}>
 
-      <form>
+        <div className='formEscolhaPersonagem'>
+          <div>
+            <label id='labelNome'> Qual o seu nome?</label>
+            <input id='inputNome' type='text' onChange={(event) => setNomeAluno(event.target.value)}/>
+          </div>
 
-        <div className='formLogin'>
+          <div>
+            <label id='labelEscolha'>
+              Escolha o seu barco
+            </label>
+          </div>
 
-          <button id='barcoVermelho' />
-          <button id='barcoPirata' />
-          <button id='barcoBranco' />
+          <div className='botaoTipoBarco'>
+            <button id={tipoBarco === 'vermelho' ? 'barcoVermelhoSelected' : 'barcoVermelho'} onClick={() => setTipoBarco('vermelho')} />
+            <button id={tipoBarco === 'pirata' ? 'barcoPirataSelected' : 'barcoPirata'} onClick={() => setTipoBarco('pirata')} />
+            <button id={tipoBarco === 'branco' ? 'barcoBrancoSelected' : 'barcoBranco'} onClick={() => setTipoBarco('branco')} />
+          </div>
+
+          <div>
+            <button id='botaoComeçar' onClick={() => setInformacaoAluno}>Começar</button>
+          </div>
 
         </div>
 
-      </form>
     </div >
   );
 }
 
-export default TelaInicial;
+export default TelaEscolhaPersonagem;
