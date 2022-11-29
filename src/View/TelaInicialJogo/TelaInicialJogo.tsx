@@ -1,8 +1,10 @@
 import React from 'react';
 import './TelaInicialJogo.css';
 import fundo from '../../imagens/fundoCompletoPlaca.png'
+import {useNavigate} from 'react-router-dom';
 
 function TelaInicial() {
+  const navigate = useNavigate();
 
   return (
     <div className="TelaInicialJogo"
@@ -11,8 +13,8 @@ function TelaInicial() {
       <form>
 
         <div className='formMenu'>
-          <button id='botaoJogar'>Jogar</button>
-          <button id='botaoSair'>Sair</button>
+          <button id='botaoJogar' onClick={() => navigate("/TelaEscolhaPersonagem")}>Jogar</button>
+          <button id='botaoSair' onClick={() => navigate("/TelaPrincipalProfessor")}>Sair</button>
         </div>
 
       </form>

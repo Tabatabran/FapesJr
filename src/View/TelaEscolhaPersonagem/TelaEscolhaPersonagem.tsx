@@ -37,7 +37,7 @@ function TelaEscolhaPersonagem(
           </div>
 
           <div>
-            <button id='botaoComeçar' onClick={() => setInformacaoAluno}>Começar</button>
+            <button id='botaoComeçar' onClick={() => setInformacaoAluno()}>Começar</button>
           </div>
 
         </div>

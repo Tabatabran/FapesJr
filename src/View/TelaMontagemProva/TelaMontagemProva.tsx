@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './TelaMontagemProva.css';
-import PopUp from '../../Componentes/PopUps'
+import PopUp from '../../Componentes/PopUp/PopUps'
 
 interface Params {
   setInputTurma: (text: string) => void, inputTurma: string, inputDescricao: string, setInputDescricao: (texte: string) => void,
@@ -178,7 +178,7 @@ function TelaMontagemProva(
                 <button onClick={() => handleSetProximaQuestao()}>Próximo</button>
               )}
               {questao == 5 && (
-                <button onClick={() => writeUserData()} id='botaoSalvar'>Salvar</button>
+                <button onClick={() => writeUserData()} id='botaoSalvar'>Salvar Prova</button>
               )}
 
             </div>

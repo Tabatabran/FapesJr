@@ -22,7 +22,6 @@ function ControladorTelaPrincipalProfessor() {
     const [dado, setDado] = useState({})
 
     function handleSetProximaQuestao() {
-        console.log({ dado })
         if (Object.keys(dado).find(element => +element === questao)) {
             setQuestao(questao + 1)
             setImgPath('')
@@ -47,8 +46,6 @@ function ControladorTelaPrincipalProfessor() {
                     enunciado: event.target.enunciado.value
                 }
             })
-            console.log(dado)
-
             setMensagem('A questão foi salva com sucesso')
             setShowPopUp(true)
         } else {
@@ -100,33 +97,33 @@ function ControladorTelaPrincipalProfessor() {
         event.preventDefault()
         if (event.target.enunciado.value && event.target.resposta1.value && event.target.resposta3.value && event.target.resposta4.value && event.target.respostaCorreta.value) {
 
-            if (imgURL) {
-                await handleUploadImagem(imgURL)
-                setDado({
-                    ...dado,
-                    [questao]: {
-                        tipoQuestao: tipoQuestao,
-                        enunciado: event.target.enunciado.value,
-                        imagem: imgPath,
-                        resposta1: event.target.resposta1.value,
-                        resposta2: event.target.resposta2.value,
-                        resposta3: event.target.resposta3.value,
-                        resposta4: event.target.resposta4.value,
-                        respostaCorreta: event.target.respostaCorreta.value
-                    }
+        
+                handleUploadImagem(imgURL).then((result) => {
+                    setDado({
+                        ...dado,
+                        [questao]: {
+                            tipoQuestao: tipoQuestao,
+                            enunciado: event.target.enunciado.value,
+                            imagem: result,
+                            resposta1: event.target.resposta1.value,
+                            resposta2: event.target.resposta2.value,
+                            resposta3: event.target.resposta3.value,
+                            resposta4: event.target.resposta4.value,
+                            respostaCorreta: event.target.respostaCorreta.value
+                        }
+                    })
+                    
+                    event.target.enunciado.value = ''
+                    event.target.resposta1.value = ''
+                    event.target.resposta2.value = ''
+                    event.target.resposta3.value = ''
+                    event.target.resposta4.value = ''
+                    event.target.respostaCorreta.value = ''
+                    setMensagem('Salvo')
+                    setShowPopUp(true)
                 })
-                setMensagem('Salvo')
-                setShowPopUp(true)
-                event.target.enunciado.value = ''
-                event.target.resposta1.value = ''
-                event.target.resposta2.value = ''
-                event.target.resposta3.value = ''
-                event.target.resposta4.value = ''
-                event.target.respostaCorreta.value = ''
-            } else {
-                setMensagem('ocorreu um erro com a imagem')
-                setShowPopUp(true)
-            }
+                
+
         } else if (!event.target.enunciado.value) {
             setMensagem('Informe o enunciado da questão')
             setShowPopUp(true)
@@ -152,22 +149,21 @@ function ControladorTelaPrincipalProfessor() {
     async function salvarTipoQuestao4(event: any) {
         event.preventDefault()
         if (event.target.enunciado.value) {
-            if (imgURL) {
-                await handleUploadImagem(imgURL)
-                setDado({
-                    ...dado,
-                    [questao]: {
-                        tipoQuestao: tipoQuestao,
-                        enunciado: event.target.enunciado.value,
-                        imagem: imgPath
-                    }
+            
+                handleUploadImagem(imgURL).then((result) => {
+                    setDado({
+                        ...dado,
+                        [questao]: {
+                            tipoQuestao: tipoQuestao,
+                            enunciado: event.target.enunciado.value,
+                            imagem: result
+                        }
+                    })
+                    setMensagem('Salvo')
+                    setShowPopUp(true)
                 })
-                setMensagem('Salvo')
-                setShowPopUp(true)
-            } else {
-                setMensagem('ocorreu um erro com a imagem')
-                setShowPopUp(true)
-            }
+                
+            
         } else {
             setMensagem('Informe o enunciado')
             setShowPopUp(true)
@@ -187,7 +183,7 @@ function ControladorTelaPrincipalProfessor() {
             setMensagem('A prova foi salva com sucesso')
             setShowPopUp(true)
         }else{
-            setMensagem('Vafor informar os dados da turma')
+            setMensagem('Favor informar os dados da turma')
             setShowPopUp(true)
         }
 
@@ -206,28 +202,30 @@ function ControladorTelaPrincipalProfessor() {
         setShowPopUp(false);
     }
 
-    async function handleUploadImagem(img: any) {
-
-        if (!img) return;
-        const file = img[0]
-        const storageRef = refStorageDAO(storage, `${user?.uid}/imagens/${file.name}`);
-        const uploadTask = uploadBytesResumable(storageRef, file);
-        uploadTask.on("state_changed",
-            (snapshot) => {
-                const progress =
-                    Math.round((snapshot.bytesTransferred / snapshot.totalBytes) * 100);
-                //setProgresspercent(progress);
-            },
-            (error) => {
-                console.log(error);
-            },
-            () => {
-                getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-                    setImgPath(downloadURL)
-                    console.log({ downloadURL })
-                });
-            }
-        );
+    function handleUploadImagem(img: any) {
+       return new Promise ((resolve, reject) => {
+            if (!img) reject('Vazio');   
+            const file = img[0]
+            const storageRef = refStorageDAO(storage, `${user?.uid}/imagens/${file.name}`);
+            const uploadTask = uploadBytesResumable(storageRef, file);
+            uploadTask.on("state_changed",
+                (snapshot) => {
+                    const progress =
+                        Math.round((snapshot.bytesTransferred / snapshot.totalBytes) * 100);
+                    //setProgresspercent(progress);
+                },
+                (error) => {
+                    reject(error)
+                },
+                () => {
+                    getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+                     
+                        resolve(downloadURL);
+                    });
+                }
+            );
+        })
+        
 
     }
 

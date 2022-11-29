@@ -16,7 +16,7 @@ const SignUp = () => {
     try{
      await registerWithEmailAndPassword(displayName, email, password);
      alert('Tudo certo! \n Cadastro realizado!')
-     navigate('/TelaPrincipalProfessor')
+     navigate('/TelaLogin')
     }
     catch(error){
       alert(error);
