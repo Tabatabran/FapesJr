@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import TelaPrincipalProfessor from './TelaMontagemProva';
 import { db, auth, registerProva } from '../../dao/firebase'
 import { useAuthState } from "react-firebase-hooks/auth";
-
 import { storage, refStorageDAO } from "../../dao/firebaseStorage";
 import { getDownloadURL, uploadBytesResumable } from "firebase/storage";
 import { useNavigate } from 'react-router-dom';

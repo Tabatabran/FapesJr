@@ -13,6 +13,6 @@ export const handleStateProva = createSlice({
 })
 
 // Action creators are generated for each case reducer function
-export const { saveProva} = handleStateProva.actions
+export const {saveProva} = handleStateProva.actions
 
 export default handleStateProva.reducer

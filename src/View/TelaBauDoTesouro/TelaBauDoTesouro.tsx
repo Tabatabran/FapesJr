@@ -1,4 +1,4 @@
-import './TelaTipo1.css';
+import './TelaBauDoTesouro.css';
 import fundo from '../../imagens/mapa.png'
 
 function TelaTipo1() {
@@ -7,7 +7,7 @@ function TelaTipo1() {
     <div className="TelaTipo1" 
     style={{ backgroundImage: `url(${fundo})` }}>
       
-      <label>tela tipo 1</label>
+      <label>bau do tesouro</label>
 
     </div >
   );

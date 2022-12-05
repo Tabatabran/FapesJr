@@ -59,10 +59,10 @@ function TelaInicial({
       </div>
       <div>
         {prova.map((value: { turma: String, descricao: string, prova: any }, index) => (
-          <div className='ListaProvas'>
+          <div key={index} className='ListaProvas'>
             <div className='descricaoProva'>
-              <label key={index.toString()}>{value.turma}</label>
-              <label key={index.toString()}>{value.descricao}</label>
+              <label>{value.turma}</label>
+              <label>{value.descricao}</label>
             </div>
 
             <div className='BotoesListaProvas'>
