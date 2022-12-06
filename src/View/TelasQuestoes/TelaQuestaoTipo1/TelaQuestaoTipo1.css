@@ -1,0 +1,28 @@
+.TelaTipo1 {
+    background-color: #282c34;
+    background: round;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+  }
+
+  #enunciadoDaQuestao{
+    position: fixed;
+    top: 10%;
+    left: 10%;
+    right: 10%;
+    font-size: 30px;
+    text-align: center;
+    font-weight: bold;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+  #inputRespostaTipoQuestao1{
+    width: 50vh;
+    font-size: 30px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  

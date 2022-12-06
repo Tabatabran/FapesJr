@@ -178,9 +178,9 @@ function ControladorTelaPrincipalProfessor() {
             }
             registerProva({ dado: newDado, uidUser: user?.uid })
 
-            navigate('/TelaPrincipalProfessor')
             setMensagem('A prova foi salva com sucesso')
             setShowPopUp(true)
+            navigate('/TelaPrincipalProfessor')
         }else{
             setMensagem('Favor informar os dados da turma')
             setShowPopUp(true)

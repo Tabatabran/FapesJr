@@ -12,7 +12,7 @@ interface Params {
 }
 
 function TelaMapa({ tipoBarco, showPopUp, openModal, closeModal,
-  mensagem}: Params) {
+  mensagem }: Params) {
 
   return (
     <div className="TelaMapa"

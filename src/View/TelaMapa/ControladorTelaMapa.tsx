@@ -4,20 +4,22 @@ import { useNavigate } from 'react-router-dom';
 import { increment } from '../../Componentes/redux/questao';
 import TelaMapa from './TelaMapa';
 
-
 function ControladorTelaMapa() {
   const navigate = useNavigate();
-  const prova = useSelector((state: any) => state.storeProva.prova);
+  const prova = useSelector((state: any) => state.storeProva.prova.prova);
   const aluno = useSelector((state: any) => state.storeAluno.respostasAluno);
   const questaoAtual = useSelector((state: any) => state.storeQuestao.questao);
   const [showPopUp, setShowPopUp] = useState(false);
   const [mensagem, setMensagem] = useState("");
   const dispatch = useDispatch();
+
+  console.log(prova)
+
   var tipoBarco = aluno.tipoBarco
   var idCss = '';
 
   useEffect(() => {
-    var caminho = handleNumeroQuestao()
+    var caminho = handleProximaQuestao()
 
     const timer = setTimeout(() => navigate(caminho), 3000);
 
@@ -25,17 +27,15 @@ function ControladorTelaMapa() {
 
   }, [])
 
-  function handleNumeroQuestao() {
-    dispatch(increment)
+  function handleProximaQuestao() {
     var caminhoTelaQuestao = '';
-console.log(questaoAtual)
-    if (questaoAtual < 1) {
-      setMensagem('Ocorreu algum erro com a prova');
-      setShowPopUp(true);
-      return caminhoTelaQuestao = '/TelaPrincipalProfessor'
-    }
 
-    switch (questaoAtual) {
+    var tipoquestao = prova[questaoAtual].tipoQuestao;
+
+    console.log(prova)
+    console.log(tipoquestao)
+    
+    switch (tipoquestao) {
       case 1:
         return caminhoTelaQuestao = '/TelaQuestaoTipo1';
       case 2:
@@ -51,10 +51,6 @@ console.log(questaoAtual)
         setShowPopUp(true);
         return caminhoTelaQuestao = '/TelaPrincipalProfessor';
     }
-
-  }
-
-  function handleTipoQuestao() {
 
   }
 
