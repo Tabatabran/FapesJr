@@ -13,6 +13,29 @@
   border: none;
   width: 25vh;
   height: 21vh;
-  margin-left: 85vh;
+}
+
+.barcoNavegacao1{
+  margin-bottom: 30vh;
+  margin-left: 140vh;
+}
+
+.barcoNavegacao2{
   margin-top: 30vh;
+  margin-left: 90vh;
+}
+
+.barcoNavegacao3{
+  margin-top: 25vh;
+  margin-left: 45vh;
+}
+
+.barcoNavegacao4{
+  margin-top: 20vh;
+  margin-right: 45vh;
+}
+
+.barcoNavegacao5{
+  margin-bottom: 50vh;
+  margin-right: 40vh;
 }

@@ -8,25 +8,27 @@ import PopUp from '../../Componentes/PopUp/PopUps'
 
 interface Params {
   tipoBarco: string, showPopUp: boolean, openModal: () => void, closeModal: () => void,
-  mensagem: string
+  mensagem: string, barcoNavegacaoNome: string
 }
 
 function TelaMapa({ tipoBarco, showPopUp, openModal, closeModal,
-  mensagem }: Params) {
+  mensagem, barcoNavegacaoNome }: Params) {
 
   return (
     <div className="TelaMapa"
       style={{ backgroundImage: `url(${fundo})` }}>
 
-      {tipoBarco === 'vermelho' && (
-        <img id='barco' src={barcoVermelho} />
-      )}
-      {tipoBarco === 'pirata' && (
-        <img id='barco' src={barcoPirata} />
-      )}
-      {tipoBarco === 'branco' && (
-        <img id='barco' src={barcoBranco} />
-      )}
+      <div className={barcoNavegacaoNome}>
+        {tipoBarco === 'vermelho' && (
+          <img id='barco' src={barcoVermelho} />
+        )}
+        {tipoBarco === 'pirata' && (
+          <img id='barco' src={barcoPirata} />
+        )}
+        {tipoBarco === 'branco' && (
+          <img id='barco' src={barcoBranco} />
+        )}
+      </div>
 
       <div>
         <PopUp mensagem={mensagem} visible={showPopUp} openModal={openModal} closeModal={closeModal} />

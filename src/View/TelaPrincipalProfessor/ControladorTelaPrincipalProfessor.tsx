@@ -15,7 +15,7 @@ function ControladorTelaPrincipalProfessor() {
         navigate("/");
     }
 
-    function iniciarJogo(prova: { turma: String, descricao: string, prova: any }){
+    function iniciarJogo(prova: {id: string, prova: { turma: String, descricao: string, prova: any }}){
         dispatch(saveProva(prova));
         navigate("/TelaInicialJogo");
         console.log(prova);

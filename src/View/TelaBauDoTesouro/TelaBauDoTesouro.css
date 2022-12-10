@@ -1,0 +1,39 @@
+#bauTesouro{
+    border: none;
+    background-color: rgb(0, 0, 0, 0);
+    background-size: cover;
+    height: 60vh;
+    width: 60vh;
+    margin-top: 2vh;
+}
+
+#label1{
+    color: black;
+    font-size: 80px;
+    font-weight: bold;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#label2{
+    color: black;
+    font-size: 30px;
+    font-weight: bold;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#botaoVoltarInicio{
+    display: flex;
+    border: none;
+    background-color: rgb(0, 0, 0, 0);
+    background-size: cover;
+    background-image: url('/src/imagens/setaDireita.png');
+    font-size: 35px;
+    color: white;
+    height: 15vh;
+    width: 30vh;
+    margin-bottom: 2vh;
+    align-self: flex-end;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+}

@@ -94,6 +94,29 @@ export const registerProva = async ({dado,uidUser}) => {
   }
 }
 
+export const registerResultadosAlunos = async ({dado,uidUser,idProva}) => {
+  try {
+    console.log({uidUser})
+    await addDoc(collection(dbFire, "professor/"+uidUser+"/provas/"+idProva+"/respostasAlunos/"), dado);
+
+    console.log('prova registrada')
+    
+  } catch (err) {
+    console.log(err.message);
+    if(err.message === 'Firebase: Password should be at least 6 characters (auth/weak-password).'){
+      //alert('Sua senha tem que ter no minino 6 caracteres');
+      throw 'Sua senha tem que ter no minino 6 caracteres'
+
+    }else if (err.message === 'Firebase: Error (auth/email-already-in-use).'){
+      throw 'O e-mail escolido já esta sendo utilizado!'
+
+    }else{
+      throw 'Ocorreu um erro, por favor tente novamente!'
+
+    }
+  }
+}
+
 export const logout = () => {
   signOut(auth);  
 };

@@ -2,10 +2,10 @@ import './TelaQuestaoTipo1.css';
 import fundo from '../../../imagens/fundoIlhaPlaca.png'
 
 interface Params {
-  enunciado: string
+  enunciado: string, setResposta: (text: string) => void, handleSalvarRespostaAluno: () => void
 }
 
-function TelaTipo1({ enunciado }: Params) {
+function TelaTipo1({ enunciado, setResposta, handleSalvarRespostaAluno }: Params) {
 
   return (
     <div className="TelaTipo1"
@@ -16,9 +16,12 @@ function TelaTipo1({ enunciado }: Params) {
       </div>
 
       <div>
-        <input id='inputRespostaTipoQuestao1'></input>
+        <input id='inputRespostaTipoQuestao1' type='text' onChange={(event) => setResposta(event.target.value)}></input>
       </div>
 
+      <div>
+        <button id='salvarRespostaTipo1' onClick={() => handleSalvarRespostaAluno()}>Próxima</button>
+      </div>
     </div >
   );
 }

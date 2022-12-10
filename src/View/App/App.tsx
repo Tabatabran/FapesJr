@@ -8,9 +8,9 @@ import TelaLogin from '../TelaLogin/ControladorTelaLogin';
 import TelaCadastro from '../TelaCadastro/ControladorTelaCadastro';
 import TelaMapa from '../TelaMapa/ControladorTelaMapa';
 import TelaQuestaoTipo1 from '../TelasQuestoes/TelaQuestaoTipo1/ControladorTelaQuestaoTipo1';
-import TelaQuestaoTipo2 from '../TelasQuestoes/TelaQuestaoTipo2/TelaQuestaoTipo2';
-import TelaQuestaoTipo3 from '../TelasQuestoes/TelaQuestaoTipo3/TelaQuestaoTipo3';
-import TelaQuestaoTipo4 from '../TelasQuestoes/TelaQuestaoTipo4/TelaQuestaoTipo4';
+import TelaQuestaoTipo2 from '../TelasQuestoes/TelaQuestaoTipo2/ControladorTelaQuestaoTipo2';
+import TelaQuestaoTipo3 from '../TelasQuestoes/TelaQuestaoTipo3/ControladorTelaQuestaoTipo3';
+import TelaQuestaoTipo4 from '../TelasQuestoes/TelaQuestaoTipo4/ControladorTelaQuestaoTipo4';
 import TelaBauDoTesouro from '../TelaBauDoTesouro/TelaBauDoTesouro'; 
 
 function App() {

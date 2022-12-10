@@ -118,7 +118,7 @@ function ControladorTelaPrincipalProfessor() {
                     event.target.resposta3.value = ''
                     event.target.resposta4.value = ''
                     event.target.respostaCorreta.value = ''
-                    setMensagem('Salvo')
+                    setMensagem('A questão foi salva com sucesso')
                     setShowPopUp(true)
                 })
                 
@@ -158,7 +158,7 @@ function ControladorTelaPrincipalProfessor() {
                             imagem: result
                         }
                     })
-                    setMensagem('Salvo')
+                    setMensagem('A questão foi salva com sucesso')
                     setShowPopUp(true)
                 })
                 

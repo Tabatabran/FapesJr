@@ -1,4 +1,3 @@
-import React from 'react';
 import './TelaEscolhaPersonagem.css';
 import fundo from '../../imagens/fundoIlhaPlaca.png'
 import { useNavigate } from 'react-router-dom';

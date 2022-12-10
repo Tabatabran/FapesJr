@@ -12,11 +12,14 @@ export const handleStateQuestao = createSlice({
     decrement: (state) => {
       state.questao -= 1
     },
+    setValor: (state) => {
+      state.questao = 1
+    },
   },
 })
 
 // Action creators are generated for each case reducer function
-export const {increment, decrement} = handleStateQuestao.actions
+export const {increment, decrement, setValor} = handleStateQuestao.actions
 
 export const selectCount = (state: { counter: { questao: any; }; }) => state.counter.questao
 

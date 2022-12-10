@@ -9,14 +9,14 @@ import { query, collection, getDocs, where } from "firebase/firestore";
 import { useState } from 'react';
 
 interface Params {
-  handleLogout: () => void, iniciarJogo: (valor: { turma: String, descricao: string, prova: any }) => void
+  handleLogout: () => void, iniciarJogo: (prova: {id: string, prova: { turma: String, descricao: string, prova: any }}) => void
 }
 
 function TelaInicial({
   handleLogout, iniciarJogo
 }: Params) {
   const [user, loading, error] = useAuthState(auth);
-  const [prova, setProva] = useState([])
+  const [colecaoProva, setProva] = useState([])
   const navigate = useNavigate();
 
   const initial = async () => {
@@ -24,7 +24,7 @@ function TelaInicial({
       const q = query(collection(dbFire, `professor/${user?.uid}/provas`));
       const doc = await getDocs(q);
       let newDataProva = [] as any
-      await doc.docs.forEach((prova) => newDataProva.push(prova.data()))
+      await doc.docs.forEach((prova) => newDataProva.push({id:prova.id, prova:prova.data()}))
       console.log(newDataProva)
       setProva(newDataProva)
     } catch (err) {
@@ -58,11 +58,11 @@ function TelaInicial({
         <label>Provas criadas</label>
       </div>
       <div>
-        {prova.map((value: { turma: String, descricao: string, prova: any }, index) => (
+        {colecaoProva.map((value: {id: string, prova: { turma: String, descricao: string, prova: any }}, index) => (
           <div key={index} className='ListaProvas'>
             <div className='descricaoProva'>
-              <label>{value.turma}</label>
-              <label>{value.descricao}</label>
+              <label>{value.prova.turma}</label>
+              <label>{value.prova.descricao}</label>
             </div>
 
             <div className='BotoesListaProvas'>
