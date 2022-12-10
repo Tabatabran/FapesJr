@@ -2,7 +2,12 @@ import './TelaBauDoTesouro.css';
 import fundo from '../../imagens/fundoIlha.jpg'
 import bau from '../../imagens/bauTesouro.png'
 
-function TelaTipo1() {
+function TelaTipo1({
+  handleSair
+}:
+  {
+    handleSair: () => void
+  }) {
 
   return (
     <div className="TelaTipo1" 
@@ -14,7 +19,7 @@ function TelaTipo1() {
       
       <img id = 'bauTesouro' src={bau}/>
 
-      <button id = 'botaoVoltarInicio'>Sair</button>
+      <button id = 'botaoVoltarInicio' onClick={handleSair}>Sair</button>
 
     </div >
   );
