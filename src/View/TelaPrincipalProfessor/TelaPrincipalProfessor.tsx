@@ -9,11 +9,12 @@ import { query, collection, getDocs, where } from "firebase/firestore";
 import { useState } from 'react';
 
 interface Params {
-  handleLogout: () => void, iniciarJogo: (prova: {id: string, prova: { turma: String, descricao: string, prova: any }}) => void
+  handleLogout: () => void, iniciarJogo: (prova: {id: string, prova: { turma: String, descricao: string, prova: any }}) => void,
+  mostrarResultados: (prova: {id: string, prova: { turma: String, descricao: string, prova: any }}) => void
 }
 
 function TelaInicial({
-  handleLogout, iniciarJogo
+  handleLogout, iniciarJogo, mostrarResultados
 }: Params) {
   const [user, loading, error] = useAuthState(auth);
   const [colecaoProva, setProva] = useState([])
@@ -25,7 +26,7 @@ function TelaInicial({
       const doc = await getDocs(q);
       let newDataProva = [] as any
       await doc.docs.forEach((prova) => newDataProva.push({id:prova.id, prova:prova.data()}))
-      console.log(newDataProva)
+      // console.log(newDataProva)
       setProva(newDataProva)
     } catch (err) {
       console.error(err);
@@ -69,6 +70,7 @@ function TelaInicial({
               <button id="botaoIniciarProva" onClick={() => iniciarJogo(value)}>Iniciar prova</button>
               <button id="botaoEditar" >Editar</button>
               <button id="botaoExcluir" >Excluir</button>
+              <button id="botaoRespostas" onClick= {() => mostrarResultados(value)}>Respostas dos alunos</button>
             </div>
 
           </div>

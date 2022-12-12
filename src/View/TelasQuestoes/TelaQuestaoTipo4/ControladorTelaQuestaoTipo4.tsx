@@ -16,7 +16,7 @@ function ControladorTelaQuestaoTipo4() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  console.log(urlImagem)
+ // console.log(urlImagem)
 
   function handleSalvarRespostaAluno() {
     alunoInformacoes = {

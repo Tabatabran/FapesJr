@@ -11,6 +11,7 @@ import { auth, dbFire } from "../../dao/firebase";
 function ControladorTelaMapa() {
   const navigate = useNavigate();
   const prova = useSelector((state: any) => state.storeProva.prova.prova.prova);
+  const provaId = useSelector((state: any) => state.storeProva.prova.id);
   const aluno = useSelector((state: any) => state.storeAluno.respostasAluno);
   const questaoAtual = useSelector((state: any) => state.storeQuestao.questao);
   const [showPopUp, setShowPopUp] = useState(false);
@@ -19,16 +20,15 @@ function ControladorTelaMapa() {
   const barcoNavegacaoNome = handleBarcoNavegacaoNome();
   const [user] = useAuthState(auth);
 
-  console.log(prova)
+  // console.log(prova)
 
   var tipoBarco = aluno.tipoBarco;
 
-  console.log(tipoBarco)
+  // console.log(tipoBarco)
 
   useEffect(() => {
-    var caminho = handleProximaQuestao()
-
-    const timer = setTimeout(() => navigate(caminho), 3000);
+ 
+    const timer = setTimeout(() => handleProximaQuestao(), 3000);
 
     return () => clearTimeout(timer);
 
@@ -39,42 +39,43 @@ function ControladorTelaMapa() {
 
     if (questaoAtual < 6 && questaoAtual > 0) {
 
-      console.log(questaoAtual)
+      // console.log(questaoAtual)
 
       var tipoquestao = prova[questaoAtual].tipoQuestao;
 
-      console.log(tipoquestao)
+      // console.log(tipoquestao)
 
       switch (tipoquestao) {
         case 1:
-          return caminhoTelaQuestao = '/TelaQuestaoTipo1';
+           caminhoTelaQuestao = '/TelaQuestaoTipo1';
+           break;
         case 2:
-          return caminhoTelaQuestao = '/TelaQuestaoTipo2';
+           caminhoTelaQuestao = '/TelaQuestaoTipo2';
+          break;
         case 3:
-          return caminhoTelaQuestao = '/TelaQuestaoTipo3';
+           caminhoTelaQuestao = '/TelaQuestaoTipo3';
+           break;
         case 4:
-          return caminhoTelaQuestao = '/TelaQuestaoTipo4';
+           caminhoTelaQuestao = '/TelaQuestaoTipo4';
+           break;
         default:
           setMensagem('Ocorreu algum erro com a prova');
           setShowPopUp(true);
-          return caminhoTelaQuestao = '/TelaPrincipalProfessor';
+           caminhoTelaQuestao = '/TelaPrincipalProfessor';
       }
     } else if (questaoAtual === 6) {
-
-      dispatch(setValor);
-
-      console.log(aluno)
-
-      registerResultadosAlunos({dado: aluno, uidUser: user?.uid, idProva: prova.id});
-
-      return caminhoTelaQuestao = '/TelaBauDoTesouro';
+      console.log(questaoAtual)
+      dispatch(setValor());
+      registerResultadosAlunos({dado: aluno, uidUser: user?.uid, idProva: provaId});
+      caminhoTelaQuestao = '/TelaBauDoTesouro';
+       
     } else {
       setMensagem('Ocorreu algum erro com a prova');
       setShowPopUp(true);
-      return caminhoTelaQuestao = '/TelaPrincipalProfessor';
+       caminhoTelaQuestao = '/TelaPrincipalProfessor';
     }
 
-
+   navigate(caminhoTelaQuestao)
   }
 
   function handleBarcoNavegacaoNome() {

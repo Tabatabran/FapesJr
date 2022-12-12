@@ -18,13 +18,18 @@ function ControladorTelaPrincipalProfessor() {
     function iniciarJogo(prova: {id: string, prova: { turma: String, descricao: string, prova: any }}){
         dispatch(saveProva(prova));
         navigate("/TelaInicialJogo");
-        console.log(prova);
+    }
+
+    function mostrarResultados(prova: {id: string, prova: { turma: String, descricao: string, prova: any }}){
+        dispatch(saveProva(prova));
+        navigate("/TelaRespostasAlunos");
     }
 
     return (
         <TelaPrincipalProfessor
             handleLogout={handleLogout}
             iniciarJogo={iniciarJogo}
+            mostrarResultados={mostrarResultados}
         />)
 
 }

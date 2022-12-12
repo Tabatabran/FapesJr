@@ -11,7 +11,9 @@ import TelaQuestaoTipo1 from '../TelasQuestoes/TelaQuestaoTipo1/ControladorTelaQ
 import TelaQuestaoTipo2 from '../TelasQuestoes/TelaQuestaoTipo2/ControladorTelaQuestaoTipo2';
 import TelaQuestaoTipo3 from '../TelasQuestoes/TelaQuestaoTipo3/ControladorTelaQuestaoTipo3';
 import TelaQuestaoTipo4 from '../TelasQuestoes/TelaQuestaoTipo4/ControladorTelaQuestaoTipo4';
-import TelaBauDoTesouro from '../TelaBauDoTesouro/TelaBauDoTesouro'; 
+import TelaBauDoTesouro from '../TelaBauDoTesouro/ControladorTelaBauDoTesouro';
+import TelaRespostasAlunos from '../TelaRespostasAlunos/ControladorTelaRespostasAlunos';
+
 
 function App() {
 
@@ -30,6 +32,7 @@ function App() {
             <Route path='/TelaQuestaoTipo3' element={<TelaQuestaoTipo3 />} />
             <Route path='/TelaQuestaoTipo4' element={<TelaQuestaoTipo4 />} />
             <Route path='/TelaBauDoTesouro' element={<TelaBauDoTesouro />} />
+            <Route path='/TelaRespostasAlunos' element={<TelaRespostasAlunos />} />
           </Routes>
         </BrowserRouter>
   );

@@ -95,7 +95,7 @@ export const registerProva = async ({dado,uidUser}) => {
 
 export const registerResultadosAlunos = async ({dado,uidUser,idProva}) => {
   try {
-    console.log({uidUser})
+    console.log({uidUser,idProva})
     await addDoc(collection(dbFire, "professor/"+uidUser+"/provas/"+idProva+"/respostasAlunos/"), dado);
 
     console.log('prova registrada')
