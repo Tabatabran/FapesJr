@@ -45,6 +45,8 @@ function ControladorTelaPrincipalProfessor() {
                     enunciado: event.target.enunciado.value
                 }
             })
+
+            event.target.enunciado.value = ''
             setMensagem('A questão foi salva com sucesso')
             setShowPopUp(true)
         } else {
@@ -69,6 +71,13 @@ function ControladorTelaPrincipalProfessor() {
                     respostaCorreta: event.target.respostaCorreta.value
                 }
             })
+
+            event.target.enunciado.value = ''
+            event.target.resposta1.value = ''
+            event.target.resposta2.value = ''
+            event.target.resposta3.value = ''
+            event.target.resposta4.value = ''
+            event.target.respostaCorreta.value = ''
             setMensagem('A questão foi salva com sucesso')
             setShowPopUp(true)
         } else if (!event.target.enunciado.value) {
@@ -96,32 +105,33 @@ function ControladorTelaPrincipalProfessor() {
         event.preventDefault()
         if (event.target.enunciado.value && event.target.resposta1.value && event.target.resposta3.value && event.target.resposta4.value && event.target.respostaCorreta.value) {
 
-        
-                handleUploadImagem(imgURL).then((result) => {
-                    setDado({
-                        ...dado,
-                        [questao]: {
-                            tipoQuestao: tipoQuestao,
-                            enunciado: event.target.enunciado.value,
-                            imagem: result,
-                            resposta1: event.target.resposta1.value,
-                            resposta2: event.target.resposta2.value,
-                            resposta3: event.target.resposta3.value,
-                            resposta4: event.target.resposta4.value,
-                            respostaCorreta: event.target.respostaCorreta.value
-                        }
-                    })
-                    
-                    event.target.enunciado.value = ''
-                    event.target.resposta1.value = ''
-                    event.target.resposta2.value = ''
-                    event.target.resposta3.value = ''
-                    event.target.resposta4.value = ''
-                    event.target.respostaCorreta.value = ''
-                    setMensagem('A questão foi salva com sucesso')
-                    setShowPopUp(true)
+
+            handleUploadImagem(imgURL).then((result) => {
+                setDado({
+                    ...dado,
+                    [questao]: {
+                        tipoQuestao: tipoQuestao,
+                        enunciado: event.target.enunciado.value,
+                        imagem: result,
+                        resposta1: event.target.resposta1.value,
+                        resposta2: event.target.resposta2.value,
+                        resposta3: event.target.resposta3.value,
+                        resposta4: event.target.resposta4.value,
+                        respostaCorreta: event.target.respostaCorreta.value
+                    }
                 })
-                
+
+                event.target.enunciado.value = ''
+                event.target.resposta1.value = ''
+                event.target.resposta2.value = ''
+                event.target.resposta3.value = ''
+                event.target.resposta4.value = ''
+                event.target.inputEscolhaImagem.value = ''
+                event.target.respostaCorreta.value = ''
+                setMensagem('A questão foi salva com sucesso')
+                setShowPopUp(true)
+            })
+
 
         } else if (!event.target.enunciado.value) {
             setMensagem('Informe o enunciado da questão')
@@ -148,21 +158,24 @@ function ControladorTelaPrincipalProfessor() {
     async function salvarTipoQuestao4(event: any) {
         event.preventDefault()
         if (event.target.enunciado.value) {
-            
-                handleUploadImagem(imgURL).then((result) => {
-                    setDado({
-                        ...dado,
-                        [questao]: {
-                            tipoQuestao: tipoQuestao,
-                            enunciado: event.target.enunciado.value,
-                            imagem: result
-                        }
-                    })
-                    setMensagem('A questão foi salva com sucesso')
-                    setShowPopUp(true)
+
+            handleUploadImagem(imgURL).then((result) => {
+                setDado({
+                    ...dado,
+                    [questao]: {
+                        tipoQuestao: tipoQuestao,
+                        enunciado: event.target.enunciado.value,
+                        imagem: result
+                    }
                 })
-                
-            
+
+                event.target.enunciado.value = ''
+                event.target.inputEscolhaImagem.value = ''
+                setMensagem('A questão foi salva com sucesso')
+                setShowPopUp(true)
+            })
+
+
         } else {
             setMensagem('Informe o enunciado')
             setShowPopUp(true)
@@ -181,7 +194,7 @@ function ControladorTelaPrincipalProfessor() {
             setMensagem('A prova foi salva com sucesso')
             setShowPopUp(true)
             navigate('/TelaPrincipalProfessor')
-        }else{
+        } else {
             setMensagem('Favor informar os dados da turma')
             setShowPopUp(true)
         }
@@ -202,8 +215,8 @@ function ControladorTelaPrincipalProfessor() {
     }
 
     function handleUploadImagem(img: any) {
-       return new Promise ((resolve, reject) => {
-            if (!img) reject('Vazio');   
+        return new Promise((resolve, reject) => {
+            if (!img) reject('Vazio');
             const file = img[0]
             const storageRef = refStorageDAO(storage, `${user?.uid}/imagens/${file.name}`);
             const uploadTask = uploadBytesResumable(storageRef, file);
@@ -218,13 +231,13 @@ function ControladorTelaPrincipalProfessor() {
                 },
                 () => {
                     getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-                     
+
                         resolve(downloadURL);
                     });
                 }
             );
         })
-        
+
 
     }
 

@@ -1,81 +1,191 @@
-.TelaPrincipalProfessorHeader {
-    background-color: #282c34;
-    min-height: 10vh;
+.TelaPrincipalProfessor {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
-  }
+    background: round;
+}
 
-  .TelaPrincipalProfessorBody {
-    background-color: #282c34;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
-  }
+.TelaPrincipalProfessorItens {
+    background-color: rgb(91, 148, 208);
+    font-size: 20Px;
+    margin-bottom: 5vh;
+    margin-top: 5vh;
+}
 
-.itens{
+.itensDescricaoTMP {
     display: flex;
     flex-direction: column;
 }
 
-.form{
+.itensTurmaTMP {
     display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
+    flex-direction: column;
 }
 
-#inputTurma{
-    margin-top: 2.5vh;
+.formTMP {
+    display: flex;
+    flex-direction: column;
 }
 
-#labelDescricao{
-    margin-bottom: 19vh;
+#inputTurmaTMP {
+    font-weight: bold;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-bottom: 2vh;
 }
 
-#labelTurma{
-    margin-bottom: 1vh;
+#labelDescricao {
+    margin-top: 3vh;
+    margin-bottom: 2vh;
+    font-weight: bold;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-#inputDescricao{
+#labelTurma {
+    margin-top: 3vh;
+    margin-bottom: 2vh;
+    font-weight: bold;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#inputDescricaoTMP {
+    width: 50vh;
     height: 20vh;
-    width: 40vh;
+    font-weight: bold;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-#formularioGeral{
+#formularioGeral {
     margin-bottom: 5vh;
-    padding-top: 5vh;
+    margin-top: 5vh;
 }
 
-#botaoSalvar{
+#botaoSalvar {
     margin-left: 50vh;
     width: 15vh;
+    font-weight: bold;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-#tipo1{
+#tipo1 {
     height: 10vh;
     width: 10vh;
+    font-weight: bold;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-#tipo2{
+#tipo2 {
     height: 10vh;
     width: 10vh;
     margin-left: 2vh;
     margin-right: 2vh;
+    font-weight: bold;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-#tipo3{
+#tipo3 {
     height: 10vh;
     width: 10vh;
     margin-right: 2vh;
+    font-weight: bold;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-#tipo4{
+#tipo4 {
     height: 10vh;
     width: 10vh;
+    font-weight: bold;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.buttonsTipos{
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+}
+
+#labelExplicacao{
+    font-size: 15px;
+    font-weight: bold;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.divLabelQuestaoAtual{
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2vh;
+}
+
+#labelquestaoAtual{
+    font-size: 40px;
+    font-weight: bold;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.divExplicaoes{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+#buttonProximaQuestao{
+    margin-bottom: 3vh;
+    font-weight: bold;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#buttonAnteriorQuestao{
+    font-weight: bold;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#botaoSalvar{
+    font-weight: bold;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#labelEnunciado{
+    font-weight: bold;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#enunciado{
+    font-weight: bold;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    width: 40vh;
+    height: 10vh;
+}
+
+#buttonSalvarQuestao{
+    font-weight: bold;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#inputEscolhaImagem{
+    font-weight: bold;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#voltarTPP{
+    font-weight: bold;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    width: 20vh;
+    margin-top: 3vh;
+    margin-bottom: 3vh;
+}
+
+.divPreview{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 3vh;
+}
+
+#imgPreview{
+    height: 250px;
+    width: 500px;
+}
+
+#labelPrevie{
+    font-weight: bold;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }

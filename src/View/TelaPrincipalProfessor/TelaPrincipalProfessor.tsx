@@ -8,9 +8,11 @@ import { useNavigate, } from 'react-router-dom';
 import { query, collection, getDocs, where } from "firebase/firestore";
 import { useState } from 'react';
 
+import fundo from '../../imagens/fundoCeu.jpg'
+
 interface Params {
-  handleLogout: () => void, iniciarJogo: (prova: {id: string, prova: { turma: String, descricao: string, prova: any }}) => void,
-  mostrarResultados: (prova: {id: string, prova: { turma: String, descricao: string, prova: any }}) => void
+  handleLogout: () => void, iniciarJogo: (prova: { id: string, prova: { turma: String, descricao: string, prova: any } }) => void,
+  mostrarResultados: (prova: { id: string, prova: { turma: String, descricao: string, prova: any } }) => void
 }
 
 function TelaInicial({
@@ -25,7 +27,7 @@ function TelaInicial({
       const q = query(collection(dbFire, `professor/${user?.uid}/provas`));
       const doc = await getDocs(q);
       let newDataProva = [] as any
-      await doc.docs.forEach((prova) => newDataProva.push({id:prova.id, prova:prova.data()}))
+      await doc.docs.forEach((prova) => newDataProva.push({ id: prova.id, prova: prova.data() }))
       // console.log(newDataProva)
       setProva(newDataProva)
     } catch (err) {
@@ -45,38 +47,48 @@ function TelaInicial({
   }, [user])
 
   return (
-    <div className="TelaPrincipalProfessor">
+    <div className="TelaPrincipalProfessor" style={{ backgroundImage: `url(${fundo})` }}>
 
-      <div>
+      <div className='divLogout'>
         <button id="botaoLogaut" onClick={handleLogout}>Sair</button>
       </div>
 
-      <div>
+      <div className='divCriarProva'>
         <button id="botaoCriarProva" onClick={() => navigate('/TelaMontagemProva')}>Criar prova</button>
       </div>
 
-      <div>
-        <label>Provas criadas</label>
-      </div>
-      <div>
-        {colecaoProva.map((value: {id: string, prova: { turma: String, descricao: string, prova: any }}, index) => (
-          <div key={index} className='ListaProvas'>
-            <div className='descricaoProva'>
-              <label>{value.prova.turma}</label>
-              <label>{value.prova.descricao}</label>
-            </div>
+      <div className='TelaPrincipalProfessorItens'>
 
-            <div className='BotoesListaProvas'>
-              <button id="botaoIniciarProva" onClick={() => iniciarJogo(value)}>Iniciar prova</button>
-              <button id="botaoEditar" >Editar</button>
-              <button id="botaoExcluir" >Excluir</button>
-              <button id="botaoRespostas" onClick= {() => mostrarResultados(value)}>Respostas dos alunos</button>
-            </div>
+        <div className='divLabelTitulo'>
+          <label id='labelProvasCriadas'>Provas criadas:</label>
+        </div>
 
-          </div>
-        ))}
-      </div>
-    </div >
+        <div className='divListaProvas'>
+          {colecaoProva.map((value: { id: string, prova: { turma: String, descricao: string, prova: any } }, index) => (
+            <div key={index} className='ListaProvas'>
+
+              <div>
+                <label id='labelSeparadorTPP'>_____________________________________________________________</label>
+              </div>
+
+              <div className='descricaoProva'>
+                <label id='labelTurmaTPP'>Turma: {value.prova.turma}</label>
+                <label id='labelDescricaoTPP'>Descrição: {value.prova.descricao}</label>
+              </div>
+
+              <div className='BotoesListaProvas'>
+                <button id="botaoIniciarProva" onClick={() => iniciarJogo(value)}>Iniciar prova</button>
+                <button id="botaoEditar" >Editar</button>
+                <button id="botaoExcluir" >Excluir</button>
+                <button id="botaoRespostas" onClick={() => mostrarResultados(value)}>Respostas dos alunos</button>
+              </div>
+
+            </div>
+          ))}
+        </div>
+
+      </div >
+    </div>
   );
 }
 

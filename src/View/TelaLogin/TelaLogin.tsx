@@ -1,55 +1,55 @@
 import React from 'react';
 import { NavigateFunction } from "react-router-dom";
 import './TelaLogin.css';
+import fundo from '../../imagens/fundoCeu.jpg'
 
 interface Params {
-  navigate : NavigateFunction;
-  onChangeHandler: (event: React.ChangeEvent<HTMLInputElement>) => void; 
-  signInWithEmailAndPasswordHandler:(event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
+  navigate: NavigateFunction;
+  onChangeHandler: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  signInWithEmailAndPasswordHandler: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
   password: string;
   email: string;
   error: string;
 }
 
-function TelaInicial({onChangeHandler,signInWithEmailAndPasswordHandler, navigate, password, email, error}: Params) {
+function TelaInicial({ onChangeHandler, signInWithEmailAndPasswordHandler, navigate, password, email, error }: Params) {
 
   return (
-    <div className="TelaLogin mt-8" >
-        {error !== null && <div className = "py-4 bg-red-600 w-full text-white text-center mb-3">{error}</div>}
+    <div className="TelaLogin" style={{ backgroundImage: `url(${fundo})` }}>
+      {error !== null && <div className="py-4 bg-red-600 w-full text-white text-center mb-3">{error}</div>}
 
       <form>
 
         <div className='formLogin'>
-          <div className='itens'>
-            <label id='labelLogin'>Email:</label>
-            <label id='labelSenha'>Senha:</label>
-          </div>
 
-          <div className='itens' id='inputs'>
+          <div className='itensLogin' id='inputs'>
             <input type="email"
-            className="my-1 p-1 w-full"
-            name="userEmail"
-            value = {email}
-            id="userEmail"
-            onChange = {(event) => onChangeHandler(event)} />
+              className="my-1 p-1 w-full"
+              name="userEmail"
+              placeholder='Email'
+              value={email}
+              id="userEmail"
+              onChange={(event) => onChangeHandler(event)} />
+
             <input type="password"
-            className="mt-1 mb-3 p-1 w-full"
-            name="userPassword"
-            value = {password}
-            id="userPassword"
-            onChange = {(event) => onChangeHandler(event)}/>
+              className="mt-1 mb-3 p-1 w-full"
+              placeholder='Senha'
+              name="userPassword"
+              value={password}
+              id="userPassword"
+              onChange={(event) => onChangeHandler(event)} />
           </div>
-        </div>
 
-        <div>
-          <button id='botaoCadastrar' onClick = {() => navigate('/CadastroProfessor')}>
-            Cadastrar
-          </button>
-          <button id='botaoLogar' onClick = {(event) => {signInWithEmailAndPasswordHandler(event)}}>
-            Logar
-          </button>
-        </div>
+          <div className='buttons'>
+            <button id='botaoCadastrar' onClick={() => navigate('/CadastroProfessor')}>
+              Cadastrar
+            </button>
+            <button id='botaoLogar' onClick={(event) => { signInWithEmailAndPasswordHandler(event) }}>
+              Logar
+            </button>
+          </div>
 
+        </div>
       </form>
     </div >
   );

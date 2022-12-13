@@ -7,30 +7,57 @@
     justify-content: center;
     font-size: calc(10px + 2vmin);
     color: white;
-  }
+    background: round;
+}
 
-  .formLogin{
+.formCadastro{
+    background-color:  rgb(91, 148, 208);
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
-#botaoLogar {
-    width: 15vh;
+#displayNameCadastro{
+    margin-top: 5vh;
+    width: 30vh;
+    margin-left: 5vh;
+    font-weight: bold;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#userEmailCadastro{
+    width: 30vh;
+    margin-left: 5vh;
+    margin-right: 5vh;
+    font-weight: bold;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#userPasswordCadastro{
+    width: 30vh;
+    margin-left: 5vh;
+    font-weight: bold;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#userPasswordCadastroConfirmacao{
+    width: 30vh;
+    margin-left: 5vh;
+    font-weight: bold;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#botaoConfirmarCadastro {
+    width: 14vh;
+    margin-bottom: 5vh;
+    font-weight: bold;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 #botaoVoltar {
-    width: 15vh;
-    margin-right: 10vh;
-}
-
-#displayName {
-    margin-left: 2vh; 
-}
-#userEmail {
-    margin-left: 3.2vh; 
-}
-#userPassword {
-    margin-left: 2vh; 
+    width: 14vh;
+    margin-right: 3.5vh;
+    font-weight: bold;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }

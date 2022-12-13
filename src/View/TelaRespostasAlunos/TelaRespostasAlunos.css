@@ -1,0 +1,55 @@
+.TelaRespostasAlunos {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background: round;
+    font-size: 20px;
+}
+
+.TelaRespostasAlunosItens {
+    background-color: rgb(91, 148, 208);
+    min-height: 100vh;
+    max-width: 110vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+}
+
+#botaoVoltarTelaPrincipalProfessor {
+    margin-top: 2vh;
+    height: 5vh;
+    width: 15vh;
+    font-size: 20px;
+}
+
+#titulo {
+    font-size: 30px;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+    margin-left: 5vh;
+    margin-right: 5vh;
+}
+
+#tituloItens {
+    margin-right: 2vh;
+}
+
+.descricaoResultados{
+    margin-left: 5vh;
+    margin-right: 5vh;
+}
+
+#questao5 {
+    margin-bottom: 1vh;
+}
+
+#nomeDoAluno {
+    margin-top: 2vh;
+}

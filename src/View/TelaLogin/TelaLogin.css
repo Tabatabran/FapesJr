@@ -1,16 +1,14 @@
 .TelaLogin {
-    background-color: #282c34;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
-  }
+    background: round;
+}
 
 #botaoCadastrar {
-    margin-right: 9vh;
+    margin-right: 2vh;
     width: 15vh;
 }
 
@@ -18,34 +16,49 @@
     width: 15vh;
 }
 
-.itens{
+.itensLogin {
     display: flex;
     flex-direction: column;
 }
 
-.formLogin{
+.formLogin {
+    background-color: rgb(91, 148, 208);
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
 }
 
-.formLoginGoogle{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
+.buttons{
+    margin-top: 2vh;
     margin-bottom: 5vh;
 }
 
-#userPassword{
-    margin-top: 2.5vh;
+#botaoCadastrar{
+    font-weight: bold;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-#labelLogin{
-    margin-bottom: 1vh;
+#botaoLogar{
+    font-weight: bold;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-#labelSenha{
-    margin-bottom: 1vh;
+#userPassword {
+    margin-top: 1vh;
+    margin-left: 5vh;
+    width: 30vh;
+    font-weight: bold;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#userEmail{
+    width: 30vh;
+    margin-top: 5vh;
+    margin-right: 5vh;
+    margin-left: 5vh;
+    font-weight: bold;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }

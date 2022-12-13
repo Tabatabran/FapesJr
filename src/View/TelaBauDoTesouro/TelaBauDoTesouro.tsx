@@ -1,5 +1,5 @@
 import './TelaBauDoTesouro.css';
-import fundo from '../../imagens/fundoIlha.jpg'
+import fundo from '../../imagens/ilhaFinal.jpg'
 import bau from '../../imagens/bauTesouro.png'
 
 function TelaTipo1({
