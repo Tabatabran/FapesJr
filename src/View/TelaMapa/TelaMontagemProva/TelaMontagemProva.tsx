@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './TelaMontagemProva.css';
-import PopUp from '../../Componentes/PopUp/PopUps'
+import PopUp from '../../../Componentes/PopUp/PopUps'
 import fundo from '../../imagens/fundoCeu.jpg'
 import { useNavigate } from 'react-router-dom';
 import previewTipo1 from '../../imagens/questaoTipo1.png'

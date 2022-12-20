@@ -16,7 +16,6 @@ function ControladorTelaInicial() {
     const signInWithEmailAndPasswordHandler = async (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
         event.preventDefault();
        await logInWithEmailAndPassword(email, password)
-       navigate("/TelaPrincipalProfessor");
     };
 
     const onChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {

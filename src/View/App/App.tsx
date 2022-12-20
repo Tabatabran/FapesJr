@@ -1,7 +1,7 @@
 import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import TelaPrincipalProfessor from '../TelaPrincipalProfessor/ControladorTelaPrincipalProfessor';
-import TelaMontagemProva from '../TelaMontagemProva/ControladorTelaMontagemProva';
+import TelaMontagemProva from '../TelaMapa/TelaMontagemProva/ControladorTelaMontagemProva';
 import TelaEscolhaPersonagem from '../TelaEscolhaPersonagem/ControladorTelaEscolhaPersonagem';
 import TelaInicialJogo from '../TelaInicialJogo/TelaInicialJogo';
 import TelaLogin from '../TelaLogin/ControladorTelaLogin';
