@@ -1,7 +1,7 @@
 import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import TelaPrincipalProfessor from '../TelaPrincipalProfessor/ControladorTelaPrincipalProfessor';
-import TelaMontagemProva from '../TelaMapa/TelaMontagemProva/ControladorTelaMontagemProva';
+import TelaMontagemProva from '../TelaMontagemProva/ControladorTelaMontagemProva';
 import TelaEscolhaPersonagem from '../TelaEscolhaPersonagem/ControladorTelaEscolhaPersonagem';
 import TelaInicialJogo from '../TelaInicialJogo/TelaInicialJogo';
 import TelaLogin from '../TelaLogin/ControladorTelaLogin';
@@ -13,6 +13,7 @@ import TelaQuestaoTipo3 from '../TelasQuestoes/TelaQuestaoTipo3/ControladorTelaQ
 import TelaQuestaoTipo4 from '../TelasQuestoes/TelaQuestaoTipo4/ControladorTelaQuestaoTipo4';
 import TelaBauDoTesouro from '../TelaBauDoTesouro/ControladorTelaBauDoTesouro';
 import TelaRespostasAlunos from '../TelaRespostasAlunos/ControladorTelaRespostasAlunos';
+import TelaRedefinirSenha from '../TelaRedefinirSenha/ControladorTelaRedefinirSenha'
 
 
 function App() {
@@ -33,6 +34,7 @@ function App() {
             <Route path='/TelaQuestaoTipo4' element={<TelaQuestaoTipo4 />} />
             <Route path='/TelaBauDoTesouro' element={<TelaBauDoTesouro />} />
             <Route path='/TelaRespostasAlunos' element={<TelaRespostasAlunos />} />
+            <Route path='/TelaRedefinirSenha' element={<TelaRedefinirSenha />} />
           </Routes>
         </BrowserRouter>
   );

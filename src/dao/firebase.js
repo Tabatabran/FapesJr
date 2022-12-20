@@ -1,6 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut } from "firebase/auth"
+import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut, sendPasswordResetEmail, sendEmailVerification } from "firebase/auth"
 import { getDatabase } from 'firebase/database'
 import {
   getFirestore,
@@ -10,7 +10,6 @@ import {
   where,
   addDoc,
 } from "firebase/firestore";
-import { useNavigate } from "react-router-dom";
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -32,26 +31,40 @@ const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
 const dbFire = getFirestore(app);
 const auth = getAuth(app);
-const navigate = useNavigate();
 export { db, auth, dbFire }
 
 
-export const logInWithEmailAndPassword = async (email, password) => {
+export const logInWithEmailAndPassword = async (email, password) => {    
   try {
     await signInWithEmailAndPassword(auth, email, password);
-    if (!err){
-      navigate("/TelaPrincipalProfessor");
-    }
     
   } catch (err) {
     console.log(err.message);
     if(err.message === 'Firebase: Error (auth/user-not-found).'){
-      alert('O seu usuario não foi cadastrado! \n Porfavor cadastre-se');
-      navigate("/")
+      throw new Error('O seu usuario não foi cadastrado! \n Porfavor cadastre-se') 
 
     }else if (err.message === 'Firebase: Error (auth/wrong-password).'){
-      alert('Senha ou usuário incorreto');
-      navigate("/")
+      throw new Error('Senha ou usuário incorreto')
+    }else{
+      throw new Error(err.message);
+    }
+  }
+};
+
+export const resetEmail = async (email) => {    
+  try {
+    
+    await sendPasswordResetEmail(auth,email);
+    
+  } catch (err) {
+    console.log(err.message);
+    if(err.message === 'Firebase: Error (auth/user-not-found).'){
+      throw new Error('O seu usuario não foi cadastrado! \n Porfavor cadastre-se') 
+
+    }else if (err.message === 'Firebase: Error (auth/wrong-password).'){
+      throw new Error('Senha ou usuário incorreto')
+    }else{
+      throw new Error(err.message);
     }
   }
 };

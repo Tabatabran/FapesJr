@@ -1,10 +1,9 @@
 import React from 'react';
-import { NavigateFunction } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import './TelaLogin.css';
 import fundo from '../../imagens/fundoCeu.jpg'
 
 interface Params {
-  navigate: NavigateFunction;
   onChangeHandler: (event: React.ChangeEvent<HTMLInputElement>) => void;
   signInWithEmailAndPasswordHandler: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
   password: string;
@@ -12,7 +11,8 @@ interface Params {
   error: string;
 }
 
-function TelaInicial({ onChangeHandler, signInWithEmailAndPasswordHandler, navigate, password, email, error }: Params) {
+function TelaInicial({ onChangeHandler, signInWithEmailAndPasswordHandler, password, email, error }: Params) {
+  const navigate = useNavigate();
 
   return (
     <div className="TelaLogin" style={{ backgroundImage: `url(${fundo})` }}>
@@ -46,6 +46,12 @@ function TelaInicial({ onChangeHandler, signInWithEmailAndPasswordHandler, navig
             </button>
             <button id='botaoLogar' onClick={(event) => { signInWithEmailAndPasswordHandler(event) }}>
               Logar
+            </button>
+          </div>
+
+          <div className='buttonsRedefinir'>
+            <button id='botaoRedefinirSenha' onClick={ () => navigate('/TelaRedefinirSenha')} >
+              Redefinir senha
             </button>
           </div>
 

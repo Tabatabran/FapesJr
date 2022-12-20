@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import {useNavigate} from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useAuthState } from "react-firebase-hooks/auth";
-import { logInWithEmailAndPassword, auth} from "../../dao/firebase";
+import { logInWithEmailAndPassword, auth } from "../../dao/firebase";
 import TelaLogin from './TelaLogin';
 
 
@@ -15,7 +15,13 @@ function ControladorTelaInicial() {
 
     const signInWithEmailAndPasswordHandler = async (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
         event.preventDefault();
-       await logInWithEmailAndPassword(email, password)
+
+        try{
+            await logInWithEmailAndPassword(email, password);
+            navigate('/TelaPrincipalProfessor');
+        }catch (e){
+            alert(e);
+        }
     };
 
     const onChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -30,7 +36,6 @@ function ControladorTelaInicial() {
     };
 
     return (<TelaLogin
-        navigate={navigate}
         signInWithEmailAndPasswordHandler={signInWithEmailAndPasswordHandler}
         email={email}
         error={errorInfo}
